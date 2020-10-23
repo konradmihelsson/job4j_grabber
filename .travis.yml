@@ -18,3 +18,7 @@ notifications:
       - konrad.mihelsson@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
+
+env:
+  global:
+    - CODECOV_TOKEN="1c4ceeda-5436-4ef9-8870-792ccbe59a0d"
