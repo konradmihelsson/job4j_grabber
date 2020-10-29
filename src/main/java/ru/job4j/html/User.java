@@ -7,14 +7,14 @@ public class User {
     private final LocalDateTime registered;
     private String email;
 
-    public User(String name) {
+    public User(String name, LocalDateTime registered) {
         this.name = name;
-        this.registered = LocalDateTime.now();
+        this.registered = registered;
     }
 
-    public User(String name, String email) {
+    public User(String name, LocalDateTime registered, String email) {
         this.name = name;
-        this.registered = LocalDateTime.now();
+        this.registered = registered;
         this.email = email;
     }
 

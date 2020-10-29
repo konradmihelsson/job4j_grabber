@@ -10,15 +10,14 @@ public class Post {
     private final User user;
     private final LocalDateTime created;
     private LocalDateTime edited;
-    private final List<Comment> comments = new ArrayList<>();
+    private final List<Post> comments = new ArrayList<>();
 
-    public Post(String title, String description, User user) {
+    public Post(String title, String description, LocalDateTime created, User user) {
         this.title = title;
         this.description = description;
         this.user = user;
-        this.created = LocalDateTime.now();
+        this.created = created;
     }
-
 
     public String getTitle() {
         return title;
@@ -40,7 +39,7 @@ public class Post {
         return edited;
     }
 
-    public List<Comment> getComments() {
+    public List<Post> getComments() {
         return comments;
     }
 
