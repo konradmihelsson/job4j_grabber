@@ -69,23 +69,26 @@ public class SqlRuParse implements Runnable {
 
     @Override
     public void run() {
-        try {
-            Document doc = Jsoup.connect("https://www.sql.ru/forum/job-offers").get();
-            Elements row = doc.select(".postslisttopic");
-            for (Element td : row) {
-                Element href = td.child(0);
-                System.out.println(href.attr("href"));
-                System.out.println(href.text());
-                String dateAndTimeToParse = href.parent().parent().child(5).text();
-                System.out.println(dateAndTimeToParse);
-                try {
-                    System.out.println(convertStringToDate(dateAndTimeToParse));
-                } catch (ParseException e) {
-                    e.printStackTrace();
+        for (int i = 1; i < 6; i++) {
+            try {
+                Document doc = Jsoup.connect("https://www.sql.ru/forum/job-offers"
+                        + "/" + i).get();
+                Elements row = doc.select(".postslisttopic");
+                for (Element td : row) {
+                    Element href = td.child(0);
+                    System.out.println(href.attr("href"));
+                    System.out.println(href.text());
+                    String dateAndTimeToParse = href.parent().parent().child(5).text();
+                    System.out.println(dateAndTimeToParse);
+                    try {
+                        System.out.println(convertStringToDate(dateAndTimeToParse));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
