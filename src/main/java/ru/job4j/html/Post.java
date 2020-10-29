@@ -7,15 +7,13 @@ import java.util.List;
 public class Post {
     private String title;
     private String description;
-    private final User user;
     private final LocalDateTime created;
     private LocalDateTime edited;
     private final List<Post> comments = new ArrayList<>();
 
-    public Post(String title, String description, LocalDateTime created, User user) {
+    public Post(String title, String description, LocalDateTime created) {
         this.title = title;
         this.description = description;
-        this.user = user;
         this.created = created;
     }
 
@@ -25,10 +23,6 @@ public class Post {
 
     public String getDescription() {
         return description;
-    }
-
-    public User getUser() {
-        return user;
     }
 
     public LocalDateTime getCreated() {
