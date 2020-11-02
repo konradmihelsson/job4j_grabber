@@ -54,7 +54,7 @@ public class SqlRuParse implements Parse {
         String date = postTable.child(0).child(2).child(0).text();
         date = date.substring(0, date.indexOf(" ["));
         try {
-            result = new Post(title, desc, Converter.convertStringToDate(date));
+            result = new Post(title, desc, document.location(), Converter.convertStringToDate(date));
         } catch (ParseException e) {
             e.printStackTrace();
         }
